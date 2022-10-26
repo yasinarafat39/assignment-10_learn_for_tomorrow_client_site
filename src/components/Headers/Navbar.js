@@ -10,6 +10,7 @@ import { FaUserCircle } from 'react-icons/fa';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, userSignOut } = useContext(AuthContext);
+    const [isLight, setIsLight] = useState(true);
 
 
     const handleSignOut = () => {
@@ -86,7 +87,11 @@ const Navbar = () => {
                                         <div className='flex items-center justify-center'>
                                             <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
                                             {
-                                                user.photoURL ? <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                user.photoURL ?
+                                                    <div className='relative flex-shrink-0'>
+                                                        <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-violet-500 border border-white rounded-full dark:text-gray-100"></span>
+                                                        <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                    </div>
                                                     :
                                                     <FaUserCircle />
 
@@ -235,7 +240,11 @@ const Navbar = () => {
                                                             <div className='flex items-center justify-center'>
                                                                 <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
                                                                 {
-                                                                    user.photoURL ? <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                                    user.photoURL ?
+                                                                        <div className='relative flex-shrink-0'>
+                                                                            <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border border-white rounded-full dark:text-gray-100"></span>
+                                                                            <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                                        </div>
                                                                         :
                                                                         <FaUserCircle />
 
