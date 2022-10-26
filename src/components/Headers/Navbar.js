@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,17 +81,29 @@ const Navbar = () => {
 
                         {
                             user?.uid ?
+                                <>
+                                    <li>
+                                        <div className='flex items-center justify-center'>
+                                            <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
+                                            {
+                                                user.photoURL ? <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                    :
+                                                    <FaUserCircle />
 
-                                <li>
-                                    <button
-                                        onClick={handleSignOut}
-                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign Out"
-                                        title="Sign Out"
-                                    >
-                                        Sign Out
-                                    </button>
-                                </li>
+                                            }
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button
+                                            onClick={handleSignOut}
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
+                                            aria-label="Sign Out"
+                                            title="Sign Out"
+                                        >
+                                            Sign Out
+                                        </button>
+                                    </li>
+                                </>
                                 :
                                 <>
                                     <li>
