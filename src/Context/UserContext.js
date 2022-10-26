@@ -2,8 +2,7 @@ import React from 'react';
 import { createContext } from 'react';
 import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-
-
+import { useState } from 'react';
 
 
 
@@ -13,17 +12,23 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
 
-    const user = { displayName: "Halarput" }
+    const [user, setUser] = useState(null);
+
 
     // sign in with email and password
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    // Sign Up with email and password
+    const signUp = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
     const authInfo = {
         user,
-        signIn
+        signIn,
+        signUp
     }
 
     return (
