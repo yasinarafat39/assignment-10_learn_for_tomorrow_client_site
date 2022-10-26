@@ -226,36 +226,61 @@ const Navbar = () => {
                                                     Blog
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/signin"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign In"
-                                                    title="Sign In"
-                                                >
-                                                    Sign In
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/signup"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign up"
-                                                    title="Sign up"
-                                                >
-                                                    Sign up
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <button
-                                                    onClick={handleSignOut}
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign Out"
-                                                    title="Sign Out"
-                                                >
-                                                    Sign Out
-                                                </button>
-                                            </li>
+
+                                            {
+                                                user?.uid ?
+                                                    <>
+
+                                                        <li>
+                                                            <div className='flex items-center justify-center'>
+                                                                <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
+                                                                {
+                                                                    user.photoURL ? <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                                        :
+                                                                        <FaUserCircle />
+
+                                                                }
+                                                            </div>
+                                                        </li>
+
+                                                        <li>
+                                                            <button
+                                                                onClick={handleSignOut}
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                aria-label="Sign Out"
+                                                                title="Sign Out"
+                                                            >
+                                                                Sign Out
+                                                            </button>
+                                                        </li>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <li>
+                                                            <NavLink
+                                                                to="/signin"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                aria-label="Sign In"
+                                                                title="Sign In"
+                                                            >
+                                                                Sign In
+                                                            </NavLink>
+                                                        </li>
+                                                        <li>
+                                                            <NavLink
+                                                                to="/signup"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                aria-label="Sign up"
+                                                                title="Sign up"
+                                                            >
+                                                                Sign up
+                                                            </NavLink>
+                                                        </li>
+                                                    </>
+                                            }
+
+
+
                                         </ul>
                                     </nav>
                                 </div>
