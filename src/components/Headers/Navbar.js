@@ -1,9 +1,26 @@
+
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../Context/UserContext';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, userSignOut } = useContext(AuthContext);
+
+
+    const handleSignOut = () => {
+        userSignOut()
+            .then(result => {
+                toast.success('Sign Out Success.')
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    }
+
     return (
         <div className="bg-white shadow-sm">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -60,9 +77,6 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-
-                        </li>
-                        <li>
                             <NavLink
                                 to="/signin"
                                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200 focus:shadow-outline focus:outline-none"
@@ -71,7 +85,8 @@ const Navbar = () => {
                             >
                                 Sign In
                             </NavLink>
-
+                        </li>
+                        <li>
                             <NavLink
                                 to="/signup"
                                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
@@ -80,7 +95,16 @@ const Navbar = () => {
                             >
                                 Sign up
                             </NavLink>
-
+                        </li>
+                        <li>
+                            <button
+                                onClick={handleSignOut}
+                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
+                                aria-label="Sign Out"
+                                title="Sign Out"
+                            >
+                                Sign Out
+                            </button>
                         </li>
                     </ul>
                     <div className="lg:hidden">
@@ -177,9 +201,6 @@ const Navbar = () => {
                                                 </NavLink>
                                             </li>
                                             <li>
-
-                                            </li>
-                                            <li>
                                                 <NavLink
                                                     to="/signin"
                                                     className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -188,7 +209,8 @@ const Navbar = () => {
                                                 >
                                                     Sign In
                                                 </NavLink>
-
+                                            </li>
+                                            <li>
                                                 <NavLink
                                                     to="/signup"
                                                     className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -197,7 +219,16 @@ const Navbar = () => {
                                                 >
                                                     Sign up
                                                 </NavLink>
-
+                                            </li>
+                                            <li>
+                                                <button
+                                                    onClick={handleSignOut}
+                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                    aria-label="Sign Out"
+                                                    title="Sign Out"
+                                                >
+                                                    Sign Out
+                                                </button>
                                             </li>
                                         </ul>
                                     </nav>
