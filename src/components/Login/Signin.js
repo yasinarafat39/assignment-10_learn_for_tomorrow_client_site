@@ -7,8 +7,11 @@ import { AuthContext } from '../../Context/UserContext';
 
 const Signin = () => {
 
-    const { user, signIn, singInWithGoogle, signInWithGithub, signInWithFacebook } = useContext(AuthContext);
+    const { user, signIn, singInWithGoogle, signInWithGithub, signInWithFacebook, userPasswordCorrection } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const [email, setEmail] = useState();
+
 
 
     // Sign in with Google
@@ -75,6 +78,27 @@ const Signin = () => {
             })
     }
 
+
+    // Password Correction
+    const handleForgotPassword = () => {
+        userPasswordCorrection(email)
+            .then(() => {
+                toast.success('Password Reset Email Send')
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message);
+            })
+    }
+
+
+    // Collect Email from user Sign in form
+    const collectEmail = (event) => {
+        const email = event.target.value;
+        console.log(email);
+        setEmail(email);
+    }
+
     return (
 
         <div className="mt-6 lg:w-2/5 md:w-1/2 sm:w-4/5 mx-auto p-8 space-y-3 rounded-xl shadow-2xl">
@@ -82,19 +106,22 @@ const Signin = () => {
             <form onSubmit={handleOnSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block text-gray-700">Email</label>
-                    <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
+                    <input onBlur={collectEmail} type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block text-gray-700">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
 
-                    <div className="flex justify-end text-xs text-gray-700">
-                        <Link to="" className='hover:underline'>Forgot Password?</Link>
-                    </div>
+
                 </div>
                 <p className='text-red-400 my-0'><small>{error}</small></p>
                 <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400 hover:bg-violet-500 transition duration-300">Sign in</button>
             </form>
+
+            <div className="flex justify-end text-xs text-gray-700">
+                <button onClick={handleForgotPassword} className='hover:underline'>Forgot Password?</button>
+            </div>
+
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
                 <p className="px-3 text-sm text-gray-700 ">or</p>

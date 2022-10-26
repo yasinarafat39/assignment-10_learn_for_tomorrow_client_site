@@ -86,9 +86,7 @@ const Signup = () => {
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block text-gray-700">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
-                    <div className="flex justify-end text-xs text-gray-700">
-                        <Link to="" className='hover:underline'>Forgot Password?</Link>
-                    </div>
+                     
                 </div>
 
                 <p className='text-red-400 my-0'><small>{error}</small></p>

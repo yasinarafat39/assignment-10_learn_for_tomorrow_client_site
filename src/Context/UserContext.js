@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { createContext } from 'react';
 import app from '../firebase/firebase.config';
-import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { useState } from 'react';
 
 
@@ -48,6 +48,12 @@ const UserContext = ({ children }) => {
         return signOut(auth)
     }
 
+    // Correction user Password
+    const userPasswordCorrection = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
+
+
     const authInfo = {
         user,
         signIn,
@@ -55,7 +61,8 @@ const UserContext = ({ children }) => {
         singInWithGoogle,
         signInWithGithub,
         userSignOut,
-        signInWithFacebook
+        signInWithFacebook,
+        userPasswordCorrection
     }
 
 
