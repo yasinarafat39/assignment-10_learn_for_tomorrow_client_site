@@ -28,8 +28,8 @@ const Navbar = () => {
                                 aria-label="Our product"
                                 title="Our product"
                                 className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
-                                :
-                                "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"
+                                    :
+                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"
                                 }
                             >
                                 Courses
@@ -41,8 +41,8 @@ const Navbar = () => {
                                 aria-label="Our product"
                                 title="Our product"
                                 className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
-                                :
-                                "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
+                                    :
+                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
                             >
                                 FAQ
                             </NavLink>
@@ -53,8 +53,8 @@ const Navbar = () => {
                                 aria-label="Product pricing"
                                 title="Product pricing"
                                 className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
-                                :
-                                "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
+                                    :
+                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
                             >
                                 Blog
                             </NavLink>
@@ -64,14 +64,6 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/signup"
-                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </NavLink>
-                            <NavLink
                                 to="/signin"
                                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200 focus:shadow-outline focus:outline-none"
                                 aria-label="Sign In"
@@ -79,6 +71,16 @@ const Navbar = () => {
                             >
                                 Sign In
                             </NavLink>
+
+                            <NavLink
+                                to="/signup"
+                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
+                                aria-label="Sign up"
+                                title="Sign up"
+                            >
+                                Sign up
+                            </NavLink>
+
                         </li>
                     </ul>
                     <div className="lg:hidden">
@@ -144,8 +146,8 @@ const Navbar = () => {
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
-                                                    :
-                                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
+                                                        :
+                                                        "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
                                                 >
                                                     Courses
                                                 </NavLink>
@@ -156,8 +158,8 @@ const Navbar = () => {
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
-                                                    :
-                                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
+                                                        :
+                                                        "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
                                                 >
                                                     FAQ
                                                 </NavLink>
@@ -179,13 +181,23 @@ const Navbar = () => {
                                             </li>
                                             <li>
                                                 <NavLink
+                                                    to="/signin"
+                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                    aria-label="Sign In"
+                                                    title="Sign In"
+                                                >
+                                                    Sign In
+                                                </NavLink>
+
+                                                <NavLink
                                                     to="/signup"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                     aria-label="Sign up"
                                                     title="Sign up"
                                                 >
                                                     Sign up
                                                 </NavLink>
+
                                             </li>
                                         </ul>
                                     </nav>
