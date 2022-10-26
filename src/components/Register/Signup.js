@@ -12,6 +12,8 @@ const Signup = () => {
     const handleSignUp = (event) => {
         event.preventDefault()
         const form = event.target;
+        const fullName = form.fullName.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -79,6 +81,16 @@ const Signup = () => {
             <form onSubmit={handleSignUp} className="space-y-6 ng-untouched ng-pristine ng-valid">
 
                 <div className="space-y-1 text-sm">
+                    <label htmlFor="Full_Name" className="block text-gray-700">Full Name</label>
+                    <input type="text" name="fullName" id="Full_Name" placeholder="Full Name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
+                </div>
+
+                <div className="space-y-1 text-sm">
+                    <label htmlFor="photoURL" className="block text-gray-700">Photo URL</label>
+                    <input type="text" name="photoURL" id="photoURL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
+                </div>
+
+                <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block text-gray-700">Email</label>
                     <input type="email" name="email" id="username" placeholder="email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
                 </div>
@@ -86,7 +98,7 @@ const Signup = () => {
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block text-gray-700">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
-                     
+
                 </div>
 
                 <p className='text-red-400 my-0'><small>{error}</small></p>
