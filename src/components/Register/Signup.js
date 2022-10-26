@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/UserContext';
 
 const Signup = () => {
 
-    const { user, signUp, signInWithGithub } = useContext(AuthContext);
+    const { user, signUp, signInWithGithub, singInWithGoogle, signInWithFacebook } = useContext(AuthContext);
     const [error, setError] = useState('');
 
 
@@ -29,16 +29,45 @@ const Signup = () => {
     }
 
 
+    // Sign in with Google
+    const handleGoogleSignIn = () => {
+        singInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                toast.success('Sign-In with Google')
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message);
+            })
+    }
+
+
+    // Sign in With Facebook
+    const handleFacebookSignIn = () => {
+        signInWithFacebook()
+            .then(result => {
+                toast.success('Sign-In With Facebook');
+                setError('');
+            })
+            .catch(error => {
+                toast.error(error.message);
+                setError(error.message);
+            })
+    }
+
     // Sign in with Github
     const handleGithubSignIn = () => {
         signInWithGithub()
             .then(result => {
                 const user = result.user;
-                // console.log(user);
                 setError('');
+                toast.success('Sign-In with Github');
             })
             .catch(error => {
                 setError(error.message);
+                toast.error(error.message);
             })
     }
 
@@ -71,10 +100,10 @@ const Signup = () => {
                 <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
             </div>
             <div className="flex justify-center space-x-4">
-                <button aria-label="Log in with Google" className="p-3 rounded-sm text-gray-700 hover:bg-gray-100 hover:shadow-md">
+                <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm text-gray-700 hover:bg-gray-100 hover:shadow-md">
                     <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 15.003906 3 C 8.3749062 3 3 8.373 3 15 C 3 21.627 8.3749062 27 15.003906 27 C 25.013906 27 27.269078 17.707 26.330078 13 L 25 13 L 22.732422 13 L 15 13 L 15 17 L 22.738281 17 C 21.848702 20.448251 18.725955 23 15 23 C 10.582 23 7 19.418 7 15 C 7 10.582 10.582 7 15 7 C 17.009 7 18.839141 7.74575 20.244141 8.96875 L 23.085938 6.1289062 C 20.951937 4.1849063 18.116906 3 15.003906 3 z" /></svg>
                 </button>
-                <button aria-label="Log in with Facebook" className="p-3 rounded-sm text-gray-700 hover:bg-gray-100 hover:shadow-md">
+                <button onClick={handleFacebookSignIn} aria-label="Log in with Facebook" className="p-3 rounded-sm text-gray-700 hover:bg-gray-100 hover:shadow-md">
                     <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">    <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z" /></svg>
                 </button>
                 <button onClick={handleGithubSignIn} aria-label="Log in with GitHub" className="p-3 rounded-sm text-gray-700 hover:bg-gray-100 hover:shadow-md">
