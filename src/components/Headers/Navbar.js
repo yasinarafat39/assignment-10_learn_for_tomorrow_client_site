@@ -6,11 +6,14 @@ import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 import { FaUserCircle } from 'react-icons/fa';
+import './Navbar.css'
+
+
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, userSignOut } = useContext(AuthContext);
-    const [isLight, setIsLight] = useState(true);
+
 
 
     const handleSignOut = () => {
@@ -136,6 +139,15 @@ const Navbar = () => {
 
                         }
 
+                        <li>
+
+
+                            <label class="switch">
+                                <input type="checkbox" />
+                                <span class="slider round"></span>
+                            </label>
+
+                        </li>
 
                     </ul>
                     <div className="lg:hidden">
@@ -242,7 +254,7 @@ const Navbar = () => {
                                                                 {
                                                                     user.photoURL ?
                                                                         <div className='relative flex-shrink-0'>
-                                                                            <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border border-white rounded-full dark:text-gray-100"></span>
+                                                                            <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-violet-500 border border-white rounded-full dark:text-gray-100"></span>
                                                                             <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
                                                                         </div>
                                                                         :
@@ -288,7 +300,15 @@ const Navbar = () => {
                                                     </>
                                             }
 
+                                            <li className='text-center'>
 
+
+                                                <label class="switch">
+                                                    <input type="checkbox" />
+                                                    <span class="slider round"></span>
+                                                </label>
+
+                                            </li>
 
                                         </ul>
                                     </nav>
