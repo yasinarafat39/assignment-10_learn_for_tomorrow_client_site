@@ -43,7 +43,7 @@ const Navbar = () => {
                             </span>
                         </div>
                     </NavLink>
-                    <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <ul className="flex items-center hidden space-x-4 lg:flex">
                         <li>
                             <NavLink
                                 to="/courses"
@@ -87,24 +87,22 @@ const Navbar = () => {
                             user?.uid ?
                                 <>
                                     <li>
-                                        <div className='flex items-center justify-center'>
-                                            <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
-                                            {
-                                                user.photoURL ?
-                                                    <div className='relative flex-shrink-0'>
-                                                        <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-violet-500 border border-white rounded-full dark:text-gray-100"></span>
-                                                        <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
-                                                    </div>
-                                                    :
-                                                    <FaUserCircle />
 
-                                            }
-                                        </div>
+                                        {
+                                            user.photoURL ?
+                                                <div title={user.displayName} className='relative flex-shrink-0'>
+                                                    <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-violet-500 border border-white rounded-full dark:text-gray-100"></span>
+                                                    <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
+                                                </div>
+                                                :
+                                                <FaUserCircle />
+                                        }
+
                                     </li>
                                     <li>
                                         <button
                                             onClick={handleSignOut}
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-300 bg-gray-200  focus:shadow-outline focus:outline-none"
                                             aria-label="Sign Out"
                                             title="Sign Out"
                                         >
@@ -117,7 +115,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink
                                             to="/signin"
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200 focus:shadow-outline focus:outline-none"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-300 bg-gray-200 focus:shadow-outline focus:outline-none"
                                             aria-label="Sign In"
                                             title="Sign In"
                                         >
@@ -127,7 +125,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink
                                             to="/signup"
-                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-200  focus:shadow-outline focus:outline-none"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-gray-300 bg-gray-200  focus:shadow-outline focus:outline-none"
                                             aria-label="Sign up"
                                             title="Sign up"
                                         >
@@ -253,7 +251,7 @@ const Navbar = () => {
                                                                 <p className='font-bold text-gray-700'>{user.displayName ? user.displayName : "N/A"}</p> &nbsp; &nbsp;
                                                                 {
                                                                     user.photoURL ?
-                                                                        <div className='relative flex-shrink-0'>
+                                                                        <div title={user.displayName} className='relative flex-shrink-0'>
                                                                             <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-violet-500 border border-white rounded-full dark:text-gray-100"></span>
                                                                             <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
                                                                         </div>
@@ -267,7 +265,7 @@ const Navbar = () => {
                                                         <li>
                                                             <button
                                                                 onClick={handleSignOut}
-                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 bg-gray-200 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                                 aria-label="Sign Out"
                                                                 title="Sign Out"
                                                             >
@@ -280,7 +278,7 @@ const Navbar = () => {
                                                         <li>
                                                             <NavLink
                                                                 to="/signin"
-                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 bg-gray-200 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                                 aria-label="Sign In"
                                                                 title="Sign In"
                                                             >
@@ -290,7 +288,7 @@ const Navbar = () => {
                                                         <li>
                                                             <NavLink
                                                                 to="/signup"
-                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-600 bg-gray-200 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                                 aria-label="Sign up"
                                                                 title="Sign up"
                                                             >
