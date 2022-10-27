@@ -95,7 +95,7 @@ const Navbar = () => {
                                                     <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
                                                 </div>
                                                 :
-                                                <FaUserCircle />
+                                                <FaUserCircle title={user.displayName} />
                                         }
 
                                     </li>
@@ -256,7 +256,7 @@ const Navbar = () => {
                                                                             <img className='rounded-full' src={user.photoURL} style={{ width: '50px', height: '50px' }} alt="user-profile" />
                                                                         </div>
                                                                         :
-                                                                        <FaUserCircle />
+                                                                        <FaUserCircle title={user.displayName} />
 
                                                                 }
                                                             </div>
