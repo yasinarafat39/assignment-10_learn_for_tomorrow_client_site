@@ -59,7 +59,10 @@ const UserContext = ({ children }) => {
         return sendEmailVerification(auth.currentUser)
     }
 
-    
+    // Update User Profile
+    const manageUserProfile = (profile) => {
+        updateProfile(auth.currentUser, profile)
+    }
 
     const authInfo = {
         user,
@@ -71,7 +74,7 @@ const UserContext = ({ children }) => {
         signInWithFacebook,
         userPasswordCorrection,
         verifyUser,
-        
+        manageUserProfile
     }
 
 

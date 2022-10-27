@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/UserContext';
 
 const Signup = () => {
 
-    const { user, signUp, signInWithGithub, singInWithGoogle, signInWithFacebook, verifyUser } = useContext(AuthContext);
+    const { user, signUp, signInWithGithub, singInWithGoogle, signInWithFacebook, verifyUser, manageUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
 
 
@@ -21,9 +21,9 @@ const Signup = () => {
         signUp(email, password)
             .then(userCredential => {
                 const user = userCredential.user;
-                // console.log(user);
                 setError('')
                 toast.success('Sign Up Success!')
+                handleUpdateUserProfile(fullName, photoURL)
                 handleVerificationEmail()
             })
             .catch(error => {
@@ -31,6 +31,22 @@ const Signup = () => {
             })
     }
 
+    // Update User Profile
+    const handleUpdateUserProfile = (fullName, photoURL) => {
+        const profile = {
+            displayName: fullName,
+            photoURL: photoURL
+        }
+
+        manageUserProfile(profile)
+            .then(() => { setError('') })
+            .catch(error => {
+                toast.error(error.message);
+                setError(error.message);
+            })
+
+
+    }
 
     // Verification Email
     const handleVerificationEmail = () => {
