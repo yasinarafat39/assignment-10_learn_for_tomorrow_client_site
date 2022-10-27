@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaStar, FaStarHalf } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
+import { Link, NavLink, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const course = useLoaderData();
@@ -43,7 +43,8 @@ const CourseDetails = () => {
                     </div>
                 </div>
 
-                <button className=''>Back</button>
+                <Link to="/courses" className='bg-gray-200 px-8 py-2 mt-24 text-gray-800 '>Back</
+                Link>
             </div>
 
 
