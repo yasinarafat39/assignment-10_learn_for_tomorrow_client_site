@@ -1,18 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 
 const Signin = () => {
 
-    const { user, signIn, singInWithGoogle, signInWithGithub, signInWithFacebook, userPasswordCorrection } = useContext(AuthContext);
+    const { user, setLoading, signIn, singInWithGoogle, signInWithGithub, signInWithFacebook, userPasswordCorrection } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
     const [error, setError] = useState('');
-
     const [email, setEmail] = useState();
 
-
+    const from = location.state?.from?.pathname || "/";
 
     // Sign in with Google
     const handleGoogleSignIn = () => {
@@ -21,10 +22,14 @@ const Signin = () => {
                 const user = result.user;
                 toast.success('Sign-In with Google');
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 setError(error.message);
                 setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
             })
     }
 
@@ -34,6 +39,7 @@ const Signin = () => {
             .then(result => {
                 toast.success('Sign-In With Facebook');
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 toast.error(error.message)
@@ -48,6 +54,7 @@ const Signin = () => {
                 const user = result.user;
                 toast.success('Sign-In with Github');
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 setError(error.message);
@@ -70,6 +77,8 @@ const Signin = () => {
                 const user = userCredential.user;
                 console.log(user);
                 setError('');
+                form.reset();
+                navigate(from, { replace: true });
                 toast.success('LogIn Success!')
             })
             .catch(error => {

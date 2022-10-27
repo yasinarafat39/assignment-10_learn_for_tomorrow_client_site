@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 
@@ -7,8 +7,10 @@ const Signup = () => {
 
     const { user, signUp, signInWithGithub, singInWithGoogle, signInWithFacebook, verifyUser, manageUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useLocation();
 
 
+    console.log(signUp);
     const handleSignUp = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -63,6 +65,7 @@ const Signup = () => {
                 const user = result.user;
                 toast.success('Sign-In with Google')
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 setError(error.message);
@@ -77,6 +80,7 @@ const Signup = () => {
             .then(result => {
                 toast.success('Sign-In With Facebook');
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 toast.error(error.message);
@@ -91,6 +95,7 @@ const Signup = () => {
                 const user = result.user;
                 setError('');
                 toast.success('Sign-In with Github');
+                navigate('/');
             })
             .catch(error => {
                 setError(error.message);
@@ -112,7 +117,7 @@ const Signup = () => {
 
                 <div className="space-y-1 text-sm">
                     <label htmlFor="photoURL" className="block text-gray-700">Photo URL</label>
-                    <input type="text" name="photoURL" id="photoURL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" required />
+                    <input type="text" name="photoURL" id="photoURL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400" />
                 </div>
 
                 <div className="space-y-1 text-sm">
