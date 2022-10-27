@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -16,7 +17,9 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    console.log(user);
+   
+
+    
 
     // sign in with email and password
     const signIn = (email, password) => {
