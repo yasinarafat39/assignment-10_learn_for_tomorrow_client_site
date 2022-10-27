@@ -37,8 +37,8 @@ const Navbar = () => {
                         className="inline-flex items-center"
                     >
                         <div className='flex justify-center items-center'>
-                            <img src={logo} width="40" height="40" alt="logo" />
-                            <span className="ml-2 text-xl font-bold tracking-wide text-gray-600 uppercase">
+                            <img src={logo} width="70" height="70" alt="logo" />
+                            <span className="ml-2 text-xl font-bold tracking-wide text-violet-400 uppercase">
                                 Learn For Tomorrow
                             </span>
                         </div>

@@ -1,4 +1,5 @@
 import Blog from "../Blog/Blog";
+import CheckOut from "../checkOut/CheckOut";
 import CourseDetails from "../Courses/CourseDetails";
 import Courses from "../Courses/Courses";
 import Faq from "../Faq/Faq";
@@ -47,6 +48,11 @@ export const router = createBrowserRouter([
             {
                 path: "/faq",
                 element: <Faq></Faq>
+            },
+            {
+                path: "/checkout/:id",
+                element: <CheckOut></CheckOut>,
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             }
         ]
     }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
-import { Link, NavLink, useLoaderData } from 'react-router-dom';
+import { FaCrown, FaStar } from 'react-icons/fa';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
 const CourseDetails = () => {
     const course = useLoaderData();
@@ -8,7 +9,17 @@ const CourseDetails = () => {
 
     return (
         <div className='mt-12 grid lg:grid-cols-4 '>
-            <div className='col-span-1 bg-gray-200'>
+            <div className='col-span-1 bg-gray-100'>
+
+                <div className=' rounded transition flex items-center bg-gray-300 p-2 m-3 '>
+                    <p>Rating:</p>&nbsp;
+                    <p className='flex items-center justify-center'> <FaStar className='text-yellow-400' /> &nbsp;{rating}</p>
+                </div>
+                <p className='bg-gray-300 p-2 m-3 rounded transition '>{courseType}</p>
+                <p className='bg-gray-300 p-2 m-3 rounded transition '>{review} Review</p>
+                <p className='bg-gray-300 p-2 m-3 rounded transition '>Duration: {duration}</p>
+
+                <Link to={`/checkout/${id}`} className=' rounded hover:shadow-lg transition m-3 py-6 bg-violet-400 hover:bg-violet-500 px-4 py-2 text-gray-800   flex items-center justify-center '> <FaCrown className='text-yellow-400' />&nbsp; Get Premium Access </Link>
 
             </div>
 
@@ -39,12 +50,18 @@ const CourseDetails = () => {
 
                     </div>
                     <div>
-                        <p>{duration}</p>
+                        <p>Duration: {duration}</p>
                     </div>
                 </div>
 
-                <Link to="/courses" className='bg-gray-200 px-8 py-2 mt-24 text-gray-800 '>Back</
-                Link>
+                <div className='flex items-center justify-between'>
+                    <div className='mt-20 inline-block'>
+                        <Link to="/courses" className='bg-gray-200 hover:bg-gray-300 transition px-6 py-2 text-gray-800 block flex items-center justify-between'> < AiOutlineDoubleLeft />&nbsp;Back</Link>
+                    </div>
+                    <div className='mt-20 inline-block'>
+                        <Link to={`/checkout/${id}`} className='bg-violet-400 hover:bg-violet-500 px-4 py-2 text-gray-800 block flex items-center justify-between'> <FaCrown className='text-yellow-400' />&nbsp; Get Premium Access &nbsp;<AiOutlineDoubleRight /> </Link>
+                    </div>
+                </div>
             </div>
 
 
