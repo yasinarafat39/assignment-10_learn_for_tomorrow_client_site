@@ -46,6 +46,19 @@ const Navbar = () => {
                     <ul className="flex items-center hidden space-x-4 lg:flex">
                         <li>
                             <NavLink
+                                to="/home"
+                                aria-label="Home"
+                                title="Home"
+                                className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
+                                    :
+                                    "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"
+                                }
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
                                 to="/courses"
                                 aria-label="Our product"
                                 title="Our product"
@@ -205,6 +218,18 @@ const Navbar = () => {
                                     </div>
                                     <nav>
                                         <ul className="space-y-4">
+                                            <li>
+                                                <NavLink
+                                                    to="/home"
+                                                    aria-label="Home"
+                                                    title="Home"
+                                                    className={({ isActive }) => isActive ? "font-medium tracking-wide text-gray-600 transition duration-200 underline-offset-2 underline"
+                                                        :
+                                                        "font-medium tracking-wide text-gray-600 transition duration-200 hover:underline underline-offset-2"}
+                                                >
+                                                    Home
+                                                </NavLink>
+                                            </li>
                                             <li>
                                                 <NavLink
                                                     to="/courses"

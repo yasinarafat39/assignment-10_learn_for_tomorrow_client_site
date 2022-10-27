@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -12,26 +12,30 @@ const Home = () => {
                     <h2 className='text-4xl font-semibold'>Learn For Tomorrow</h2>
                 </div>
             </div>
-            <div className='flex justify-center mt-8'>
+            <div className='flex justify-center mt-8 mb-80'>
                 <div>
-                    <NavLink
-                        to="/courses"
-                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 bg-gray-200 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        aria-label="Sign In"
-                        title="Sign In"
-                    >
-                        Courses
-                    </NavLink>
+                    <button
+                        className="flex items-center self-start px-10 py-3 text-lg font-medium rounded-3xl bg-violet-400 hover:bg-violet-500 transition text-gray-800">
+                        <Link
+                            to="/courses"
+                            aria-label="Courses"
+                            title="Courses"
+                        >
+                            Courses
+                        </Link>
+                    </button>
                 </div> &nbsp;&nbsp;&nbsp;&nbsp;
                 <div>
-                    <NavLink
-                        to="/blog"
-                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-gray-600 bg-gray-200 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        aria-label="Sign up"
-                        title="Sign up"
-                    >
-                        Blog
-                    </NavLink>
+                    <button
+                        className="flex items-center self-start px-10 py-3 text-lg font-medium rounded-3xl bg-violet-400 hover:bg-violet-500 transition text-gray-800">
+                        <Link
+                            to="/blog"
+                            aria-label="Sign up"
+                            title="Sign up"
+                        >
+                            Blog
+                        </Link>
+                    </button>
                 </div>
             </div>
         </div>

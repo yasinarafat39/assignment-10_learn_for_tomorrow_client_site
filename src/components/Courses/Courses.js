@@ -8,9 +8,9 @@ const Courses = () => {
     console.log(courses);
 
     return (
-        <div className='grid grid-cols-4 mt-8'>
+        <div className='lg:grid md:grid lg:grid-cols-4 md:grid-cols-4 mt-8'>
 
-            <div className='left-sidebar border col-span-1 p-2'>
+            <div className='left-sidebar  bg-gray-50 col-span-1 p-2'>
                 <h2 className='text-center font-semibold text-2xl bg-violet-400 text-gray-800 mb-5 p-3'>Course Name</h2>
                 <div className=''>
                     {
@@ -19,8 +19,8 @@ const Courses = () => {
                 </div>
             </div>
 
-            <div className='mainContent border col-span-3'>
-                <div className='grid lg:grid-cols-3 md:gird-cols-2 gap-6 m-6'>
+            <div className='mainContent col-span-3'>
+                <div className='lg:grid md:grid lg:grid-cols-3 md:gird-cols-2 gap-6 m-6'>
                     {
                         courses.map(course => <SingleCourse
                             key={course.id}

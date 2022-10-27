@@ -10,7 +10,7 @@ const SingleCourse = ({ course }) => {
 
         <div>
             <Link to={`/course/${id}`} className="relative ">
-                <div className="flex flex-col transition duration-300 bg-white rounded shadow-xl hover:shadow">
+                <div className=" sm:mb-6 flex flex-col transition duration-300 bg-white rounded shadow-xl hover:shadow">
                     <div className="relative w-full h-48">
                         <img
                             src={thumbnail}

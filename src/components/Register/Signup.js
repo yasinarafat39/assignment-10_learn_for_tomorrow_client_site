@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 
@@ -7,7 +7,7 @@ const Signup = () => {
 
     const { user, signUp, signInWithGithub, singInWithGoogle, signInWithFacebook, verifyUser, manageUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
-    const navigate = useLocation();
+    const navigate = useNavigate();
 
 
     console.log(signUp);
