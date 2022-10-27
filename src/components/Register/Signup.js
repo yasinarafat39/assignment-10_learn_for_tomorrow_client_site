@@ -24,6 +24,8 @@ const Signup = () => {
             .then(userCredential => {
                 const user = userCredential.user;
                 setError('')
+                navigate('/')
+                form.reset()
                 toast.success('Sign Up Success!')
                 handleUpdateUserProfile(fullName, photoURL)
                 handleVerificationEmail()
