@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 import { FaUserCircle } from 'react-icons/fa';
 import './Navbar.css'
-
+import logo from '../../assets/Learn For Tomorrow (1).png'
 
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
                         className="inline-flex items-center"
                     >
                         <div className='flex justify-center items-center'>
-                            <img src="../../assets/Learn_For_Tomorrow.png" width="40" height="40" alt="logo" />
+                            <img src={logo} width="40" height="40" alt="logo" />
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-600 uppercase">
                                 Learn For Tomorrow
                             </span>

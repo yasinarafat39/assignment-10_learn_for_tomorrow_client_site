@@ -20,7 +20,7 @@ const Courses = () => {
             </div>
 
             <div className='mainContent border col-span-3'>
-                <div className='grid grid-cols-3 gap-6 m-6'>
+                <div className='grid lg:grid-cols-3 md:gird-cols-2 gap-6 m-6'>
                     {
                         courses.map(course => <SingleCourse
                             key={course.id}
