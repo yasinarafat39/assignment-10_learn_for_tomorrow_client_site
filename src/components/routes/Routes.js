@@ -43,12 +43,12 @@ export const router = createBrowserRouter([
             {
                 path: "/courses",
                 element: <Courses></Courses>,
-                loader: () => fetch('https://learn-for-tomorrow-server-side.vercel.app/courses')
+                loader: () => fetch('http://localhost:5000/courses')
             },
             {
                 path: "/course/:id",
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`https://learn-for-tomorrow-server-side.vercel.app/course/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
                 path: "/faq",
@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
             {
                 path: "/checkout/:id",
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://learn-for-tomorrow-server-side.vercel.app/course/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             },
              
         ]

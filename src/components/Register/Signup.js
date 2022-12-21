@@ -24,11 +24,12 @@ const Signup = () => {
             .then(userCredential => {
                 const user = userCredential.user;
                 setError('')
-                navigate('/')
                 form.reset()
                 toast.success('Sign Up Success!')
                 handleUpdateUserProfile(fullName, photoURL)
                 handleVerificationEmail()
+                navigate('/')
+                window.location.reload();
             })
             .catch(error => {
                 setError(error.message)
@@ -43,7 +44,9 @@ const Signup = () => {
         }
 
         manageUserProfile(profile)
-            .then(() => { setError('') })
+            .then(() => {
+                setError('')
+            })
             .catch(error => {
                 toast.error(error.message);
                 setError(error.message);
