@@ -22,7 +22,7 @@ const GetUpdate = () => {
                 <p className="pt-2 pb-8 text-xl antialiased text-center text-gray-100">Find out about events and other news</p>
                 <div className="flex flex-row">
                     <form onSubmit={handleSubscribe}>
-                        <input type="email" placeholder="example@email.com" className="w-3/5 p-3 rounded-l-lg sm:w-2/3" />
+                        <input type="email" placeholder="example@email.com" className="w-3/5 p-3 rounded-l-lg sm:w-2/3" required />
                         <button type="submit" className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-violet-600 text-gray-50">Subscribe</button>
                     </form>
                 </div>
