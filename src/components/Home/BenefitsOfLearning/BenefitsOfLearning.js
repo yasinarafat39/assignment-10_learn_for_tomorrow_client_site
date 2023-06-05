@@ -6,7 +6,7 @@ import { GiBookmarklet, GiAchievement, GiTeacher } from "react-icons/gi";
 
 const BenefitsOfLearning = () => {
     return (
-        <section className='grid md:grid-cols-2 gap-10 bg-gray-50 w-full md:w-4/5 mx-auto   my-8  '>
+        <section className='grid md:grid-cols-2 gap-10 bg-gray-50 w-full md:w-4/5 mx-auto   mt-8  '>
             <div className='bg-cover' style={{ backgroundImage: `url(${FemailStudent})`, backgroundRepeat: 'no-repeat' }}>
                 <img src={femailStudentForMobile} alt="" className='md:hidden' />
             </div>

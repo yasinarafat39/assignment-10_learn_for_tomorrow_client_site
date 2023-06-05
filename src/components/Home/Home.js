@@ -6,6 +6,7 @@ import LearnerOutcomes from './LearnerOutcomes/LearnerOutcomes';
 
 import banner from '../../assets/3785210.jpg';
 import BenefitsOfLearning from './BenefitsOfLearning/BenefitsOfLearning';
+import SuccessStories from './SuccessStories/SuccessStories';
 
 const Home = () => {
     return (
@@ -35,6 +36,7 @@ const Home = () => {
 
 
             <BenefitsOfLearning></BenefitsOfLearning>
+            <SuccessStories></SuccessStories>
             <LearnerOutcomes></LearnerOutcomes>
             <GoalWithUs></GoalWithUs>
             <GetUpdate></GetUpdate>
