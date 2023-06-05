@@ -9,11 +9,6 @@ const LearnerOutcomes = () => {
         <div className=" mb-24 grid lg:gap-8 lg:grid-cols-2 lg:items-center">
 
 
-
-            <div aria-hidden="true" className="mt-10 lg:mt-0 mb-8 lg:mb-0">
-                <img src={learnerOutcomes} alt="" className="mx-auto rounded-lg" />
-            </div>
-
             <div className='lg:mr-24'>
                 <h1 className="text-5xl mb-8 text-violet-400 font-mono font-semibold ">Learner outcomes on courses you will take</h1>
 
@@ -33,7 +28,9 @@ const LearnerOutcomes = () => {
 
             </div>
 
-
+            <div aria-hidden="true" className="mt-10 lg:mt-0 mb-8 lg:mb-0">
+                <img src={learnerOutcomes} alt="" className="mx-auto rounded-lg" />
+            </div>
 
         </div>
     );
