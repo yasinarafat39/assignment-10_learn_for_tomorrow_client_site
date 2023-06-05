@@ -10,7 +10,7 @@ const Home = () => {
     return (
 
 
-        <div className='mx-auto p-6 '>
+        <div className='mx-auto p-6 max-w-[1440px]'>
 
             <section className="bg-[rgb(238,239,243)]  text-gray-800 mb-24">
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -31,35 +31,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
-
-
-            {/* <div className='flex justify-center mt-8 mb-80'>
-                <div>
-                    <button
-                        className="flex items-center self-start px-10 py-3 text-lg font-medium rounded-3xl bg-violet-400 hover:bg-violet-500 transition text-gray-800">
-                        <Link
-                            to="/courses"
-                            aria-label="Courses"
-                            title="Courses"
-                        >
-                            Courses
-                        </Link>
-                    </button>
-                </div> &nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                    <button
-                        className="flex items-center self-start px-10 py-3 text-lg font-medium rounded-3xl bg-violet-400 hover:bg-violet-500 transition text-gray-800">
-                        <Link
-                            to="/blog"
-                            aria-label="Sign up"
-                            title="Sign up"
-                        >
-                            Blog
-                        </Link>
-                    </button>
-                </div>
-            </div> */}
 
 
             <LearnerOutcomes></LearnerOutcomes>

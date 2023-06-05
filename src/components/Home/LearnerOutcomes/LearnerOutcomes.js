@@ -18,15 +18,15 @@ const LearnerOutcomes = () => {
                 <h1 className="text-5xl mb-8 text-violet-400 font-mono font-semibold ">Learner outcomes on courses you will take</h1>
 
                 <p className='flex text-xl mb-4'>
-                    <FaRegHandPointRight className='text-3xl text-[#B37946] mr-4'></FaRegHandPointRight>
+                    <FaRegHandPointRight className=' text-2xl text-[#B37946] mr-4 '></FaRegHandPointRight>
                     Techniques to engage effectively with vulnerable children and young people.
                 </p>
                 <p className='flex text-xl mb-4'>
-                    <FaRegHandPointRight className='text-3xl text-[#B37946] mr-4'></FaRegHandPointRight>
+                    <FaRegHandPointRight className=' text-2xl text-[#B37946] mr-4 '></FaRegHandPointRight>
                     Join millions of people from around the world learning together.
                 </p>
                 <p className='flex text-xl mb-4'>
-                    <FaRegHandPointRight className='text-3xl text-[#B37946] mr-4'></FaRegHandPointRight>
+                    <FaRegHandPointRight className=' text-2xl text-[#B37946] mr-4 '></FaRegHandPointRight>
                     Join millions of people from around the world learning together. Online learning is as easy and natural.
                 </p>
 
