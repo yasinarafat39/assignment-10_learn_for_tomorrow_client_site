@@ -34,7 +34,6 @@ const Home = () => {
                 </div>
             </section>
 
-
             <BenefitsOfLearning></BenefitsOfLearning>
             <SuccessStories></SuccessStories>
             <LearnerOutcomes></LearnerOutcomes>
